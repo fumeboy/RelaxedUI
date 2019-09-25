@@ -21,7 +21,7 @@ namespace N {
 }
 
 N.L  = (style) => (props) => {
-    let e1 = E().P({
+    let buttonContainer = E().P({
         className: C(
             style.ins,
             props.ifLock ? style.lock : "",
@@ -29,12 +29,13 @@ N.L  = (style) => (props) => {
             props.ifWithBorderRadius ? style.WithBorderRadius : "",
         )
     });
-    let e2 = E().P({className: style.text_1}).Children(props.text_1);
-    let e3 = E().P({className: style.text_2}).Children(props.text_2);
+    let buttonInnerText_1 = E().P({className: style.text_1}).Children(props.text_1);
+    let buttonInnerText_2 = E().P({className: style.text_2}).Children(props.text_2);
+    
     return (
-        e1.Children(
-            e2,
-            e3
+        buttonContainer.Children(
+            buttonInnerText_1,
+            buttonInnerText_2
         )
     )
 };

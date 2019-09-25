@@ -20,10 +20,10 @@ namespace N {
 }
 
 N.L = (style) => (props) => {
-    let e1 = E().P({
+    let ElemContainer = E().P({
         className: C(style.ins)
     });
-    let e2 = E('input').P({
+    let Input = E('input').P({
         id: props.id,
         name: props.name,
         type: "checkbox",
@@ -31,10 +31,10 @@ N.L = (style) => (props) => {
         checked: props.checked,
         className: C(props.disabled ? style.disabled : "", style.input)
     }).done();
-    let e3 = E().P({
+    let svgBox = E().P({
         className: C(style.svgBox)
     });
-    let e4 = ifDisplay(props.checked && !props.disabled, (
+    let svg_1 = ifDisplay(props.checked && !props.disabled, (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
@@ -45,7 +45,7 @@ N.L = (style) => (props) => {
             <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
         </svg>
     ));
-    let e5 = ifDisplay(props.disabled && !props.checked, (
+    let svg_2 = ifDisplay(props.disabled && !props.checked, (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
@@ -56,7 +56,7 @@ N.L = (style) => (props) => {
             <path d="M0 10h24v4h-24z"/>
         </svg>
     ));
-    let e6 = ifDisplay(Boolean(props.label), E('label').P({
+    let Label = ifDisplay(Boolean(props.label), E('label').P({
         htmlFor: props.id,
         className: C(style.label)
     }).Children(
@@ -64,14 +64,24 @@ N.L = (style) => (props) => {
     ));
 
     return (
-        e1.Children(
-            e2,
-            e3.Children(
-                e4,
-                e5
+        ElemContainer.Children(
+            Input,
+            svgBox.Children(
+                svg_1,
+                svg_2
             ),
-            e6
+            Label
         )
     )
+    // return (
+    //     e1.Children(
+    //         e2,
+    //         e3.Children(
+    //             e4,
+    //             e5
+    //         ),
+    //         e6
+    //     )
+    // )
 };
 export default N
