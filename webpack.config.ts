@@ -58,8 +58,9 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            modules: true,
-                            localIdentName: "[name]_[local]_[hash:base64:5]",
+                            modules: {
+                                localIdentName: "[name]__[local]___[hash:base64:5]",
+                            },
                         }
                     },
                     {
@@ -68,12 +69,6 @@ module.exports = {
                             importLoaders: 2,
                             modules: true,
                             localIdentName: "[name]_[local]_[hash:base64:5]",
-                            modifyVars: {
-                                '@brand-primary': '#FF9000',
-                                '@color-text-base': '#FF9000',
-                                '@primary-button-fill': '#FF9000',
-                                '@primary-button-fill-tap': '#FF9000',
-                            },
                             javascriptEnabled: true,
                         },
                     },
@@ -88,7 +83,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': path.join(__dirname, 'src'),
+            '$': path.join(__dirname, 'src'),
+            '$u': path.join(__dirname, 'src/components/UI'),
         },
         extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.less'],
     },

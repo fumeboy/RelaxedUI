@@ -1,33 +1,41 @@
 import React from 'react'
-import layout from './layout.less'
-import {styleType, E, C} from '@/components/UI/h'
+import {E, C} from '$u/h'
 
-let L: (style: styleType) => React.FC<P>;
-
-class P {
-    public text_1?: string;
-    public text_2?: string;
-    public ifLock?: boolean = false;
-    public ifWithBorder?: boolean = false;
-    public ifWithBorderRadius?: boolean = false;
+namespace N {
+    export let L: (style: S) => React.FC<P>;
+    export class S {
+        ins: string = "";
+        text_1: string = "";
+        text_2: string = "";
+        lock: string = "";
+        WithBorder: string = "";
+        WithBorderRadius: string = "";
+    }
+    export class P {
+        text_1?: string;
+        text_2?: string;
+        ifLock?: boolean = false;
+        ifWithBorder?: boolean = false;
+        ifWithBorderRadius?: boolean = false;
+    }
 }
 
-L = (style) => (props) => {
-    return E(
-        {
-            className: C(
-                layout.ins,
-                style.ins,
-                props.ifLock ? style.lock : "",
-                props.ifWithBorder ? style.WithBorder : "",
-                props.ifWithBorderRadius ? style.WithBorderRadius : "",
-            )
-        },
-        [
-            E({className: layout.text_1}, [props.text_1]),
-            E({className: layout.text_2}, [props.text_2])
-        ]
+N.L  = (style) => (props) => {
+    let e1 = E().P({
+        className: C(
+            style.ins,
+            props.ifLock ? style.lock : "",
+            props.ifWithBorder ? style.WithBorder : "",
+            props.ifWithBorderRadius ? style.WithBorderRadius : "",
+        )
+    });
+    let e2 = E().P({className: style.text_1}).Children(props.text_1);
+    let e3 = E().P({className: style.text_2}).Children(props.text_2);
+    return (
+        e1.Children(
+            e2,
+            e3
+        )
     )
 };
-
-export default {L, P}
+export default N

@@ -1,18 +1,16 @@
 import React from 'react'
-import layout from './layout.less'
-import {styleType, E, C} from '@/components/UI/h'
+import {styleType, E, C} from '$u/h'
 
 let L: (style: styleType) => React.FC<P>;
 
 class P {}
 
 L = (style) => (props) => {
-    return E(
-        {
-            className: C()
-        },
-        []
-    )
+    let e1 = E().P({
+        className: C()
+    });
+
+    return e1.Children()
 };
 
 export default {L, P}

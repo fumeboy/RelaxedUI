@@ -1,8 +1,9 @@
 import React from 'react';
-import ButtonP from '@/components/UI/themes/default/Button/primary'
-import ButtonS from '@/components/UI/themes/default/Button/success'
-import ButtonD from '@/components/UI/themes/default/Button/danger'
-import ButtonW from '@/components/UI/themes/default/Button/warning'
+import ButtonP from '$u/themes/default/Button/primary'
+import ButtonS from '$u/themes/default/Button/success'
+import ButtonD from '$u/themes/default/Button/danger'
+import ButtonW from '$u/themes/default/Button/warning'
+import CheckBox from '$u/themes/default/CheckBox'
 
 let C: React.FC<P>;
 
@@ -16,6 +17,7 @@ C = () => (
         <ButtonS.C text_1={"ButtonS"}/>
         <ButtonD.C text_1={"ButtonD"}/>
         <ButtonW.C text_1={"ButtonW"}/>
+        <CheckBox.C label={"label"} id={"id"} name={"name"}/>
     </div>
 );
 

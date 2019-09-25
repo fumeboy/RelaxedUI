@@ -1,12 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 import style from './style.less'
-import layoutC from '@/components/UI/layout/Button'
-
+import layoutC from '$u/layout/Button'
 let C: React.FC<P>;
 
-class P extends layoutC.P {
-}
+let S:layoutC.S = {
+    WithBorder: style.WithBorder,
+    WithBorderRadius: style.WithBorderRadius,
+    lock: style.lock,
+    text_1: style.text_1,
+    text_2: style.text_2,
+    ins: style.ins
+};
 
-C = layoutC.L(style);
+class P extends layoutC.P {}
+
+C = layoutC.L(S);
 
 export default {C, P}

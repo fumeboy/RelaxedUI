@@ -48,8 +48,9 @@
     "baseUrl": ".",
     /* Base directory to resolve non-absolute module names. */
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"]
+      "$/*": ["src/*"],
+      "$c/*": ["src/components/*"],
+      "$u/*": ["src/components/UI/*"]
     },
     /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

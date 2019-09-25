@@ -1,16 +1,36 @@
-import React, {ClassAttributes, AllHTMLAttributes, ReactNode} from "react";
+import React, {AllHTMLAttributes, ClassAttributes, ReactNode} from "react";
 
-export interface styleType {
+export class styleType {
     [className: string]: string
 }
 
-export const E = <P extends AllHTMLAttributes<T>, T extends HTMLElement>(
-    props?: ClassAttributes<T> & P | null,
-    children?: ReactNode[],
-    tag: string = 'div'
-) => React.createElement(
-    tag, props, [children]
-);
+class Elem <P extends AllHTMLAttributes<T>, T extends HTMLElement>{
+    t: string = 'div';
+    p: (ClassAttributes<T> & P) | undefined;
+    c: ReactNode[] = [];
+    done(){
+        return React.createElement(this.t, this.p, ...this.c)
+    }
+    P (p: ClassAttributes<T> & P) {
+        this.p = p;
+        return this
+    }
+    Children(...c: ReactNode[]) {
+        this.c = c;
+        return this.done()
+    }
+}
+
+export function ifDisplay(b:boolean=false, e:any){
+    return b ? e : null
+}
+
+export const E = (t: string= 'div') => {
+    let e_ = new Elem();
+    e_.t = t;
+    return e_;
+};
+
 
 export const C = (...classNames:string[])=>{
     return classNames.join(" ").replace("  ","");
