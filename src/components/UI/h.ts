@@ -4,14 +4,14 @@ export class styleType {
     [className: string]: string
 }
 
-class Elem <P extends AllHTMLAttributes<T>, T extends HTMLElement>{
+class Elem {
     t: string = 'div';
-    p: (ClassAttributes<T> & P) | undefined;
+    p: object = {};
     c: ReactNode[] = [];
     done(){
         return React.createElement(this.t, this.p, ...this.c)
     }
-    P (p: ClassAttributes<T> & P) {
+    P (p: object) {
         this.p = p;
         return this
     }
@@ -33,5 +33,5 @@ export const E = (t: string= 'div') => {
 
 
 export const C = (...classNames:string[])=>{
-    return classNames.join(" ").replace("  ","");
+    return classNames.join(" ").replace("  ","").trim();
 };

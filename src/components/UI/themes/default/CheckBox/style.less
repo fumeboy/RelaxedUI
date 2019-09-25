@@ -1,28 +1,40 @@
 @import '../../../layout/CheckBox/layout';
-@import "../style";
-.disabled{
+@import "../theme";
+
+.disabled {
   &:hover {
     border-color: @primary;
   }
-  background-color:@light;
+
+  background-color: @light;
   border-color: @light;
 }
 
-.input{
-  &:checked {
+.input {
+  border-width: 3px;
+  border-style: solid;
+  border-image: initial;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out 0s;
+  border-color: @grey;
+
+  & > .checked {
     border: 3px solid @primary;
     background-color: @primary;
   }
+
   &:hover {
     border-color: @primary;
   }
 }
 
-.svgBox{
+.svgBox {
   color: @light;
+
   & > .check {
     fill: @light;
   }
+
   & > .minus {
     fill: #cccccc;
   }

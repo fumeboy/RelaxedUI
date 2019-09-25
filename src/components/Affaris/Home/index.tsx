@@ -17,6 +17,7 @@ C = () => (
         <ButtonS.C text_1={"ButtonS"}/>
         <ButtonD.C text_1={"ButtonD"}/>
         <ButtonW.C text_1={"ButtonW"}/>
+        <hr/>
         <CheckBox.C label={"label"} id={"id"} name={"name"}/>
     </div>
 );

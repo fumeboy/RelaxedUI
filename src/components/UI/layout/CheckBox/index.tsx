@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {E, C, ifDisplay} from '$u/h'
 
 namespace N {
     export let L: (style: S) => React.FC<P>;
+
     export class P {
         label!: string;
         id!: string;
@@ -10,53 +11,62 @@ namespace N {
         checked?: boolean = false;
         disabled?: boolean = false;
     }
+
     export class S {
-        public disabled: string = "";
-        public svgBox: string = "";
-        public input: string = "";
-        public ins: string = "";
-        public label: string = "";
+        disabled: string = "";
+        svgBox: string = "";
+        input: string = "";
+        checked: string = "";
+        ins: string = "";
+        label: string = "";
+        check: string = "";
+        minus: string = "";
     }
 }
 
 N.L = (style) => (props) => {
-    let ElemContainer = E().P({
-        className: C(style.ins)
+    let checked, set_checked = useState(props.checked);
+    let main = E().P({
+        className: C(style.ins),
+        // onClick: set_checked()
     });
-    let Input = E('input').P({
+    let input = E('input').P({
         id: props.id,
         name: props.name,
         type: "checkbox",
         disabled: props.disabled,
-        checked: props.checked,
-        className: C(props.disabled ? style.disabled : "", style.input)
+        className: C(props.disabled ? style.disabled : "", props.checked ? style.checked : "", style.input)
     }).done();
     let svgBox = E().P({
         className: C(style.svgBox)
     });
     let svg_1 = ifDisplay(props.checked && !props.disabled, (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            className="check"
-        >
-            <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
-        </svg>
+        E('svg').P({
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "14",
+            height: "14",
+            viewBox: "0 0 24 24",
+            className: C(style.check),
+        }).Children(
+            E('path').P({
+                d: "M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"
+            }).done()
+        )
     ));
     let svg_2 = ifDisplay(props.disabled && !props.checked, (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            className="minus"
-        >
-            <path d="M0 10h24v4h-24z"/>
-        </svg>
+        E('svg').P({
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "14",
+            height: "14",
+            viewBox: "0 0 24 24",
+            className: C(style.minus),
+        }).Children(
+            E('path').P({
+                d: "M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"
+            }).done()
+        )
     ));
-    let Label = ifDisplay(Boolean(props.label), E('label').P({
+    let label = ifDisplay(Boolean(props.label), E('label').P({
         htmlFor: props.id,
         className: C(style.label)
     }).Children(
@@ -64,24 +74,14 @@ N.L = (style) => (props) => {
     ));
 
     return (
-        ElemContainer.Children(
-            Input,
+        main.Children(
+            input,
             svgBox.Children(
                 svg_1,
                 svg_2
             ),
-            Label
+            label
         )
     )
-    // return (
-    //     e1.Children(
-    //         e2,
-    //         e3.Children(
-    //             e4,
-    //             e5
-    //         ),
-    //         e6
-    //     )
-    // )
 };
 export default N

@@ -4,6 +4,7 @@ import layoutC from '$u/layout/CheckBox'
 let C: React.FC<P>;
 
 let S:layoutC.S = {
+    minus: style.minus, check: style.check, checked: style.checked,
     disabled: style.disabled, input: style.input, ins:style.ins, label: style.label, svgBox: style.svgBox
 };
 
