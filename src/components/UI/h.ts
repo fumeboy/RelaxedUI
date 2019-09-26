@@ -1,4 +1,4 @@
-import React, {AllHTMLAttributes, ClassAttributes, ReactNode} from "react";
+import React, {ReactNode} from "react";
 
 export class styleType {
     [className: string]: string
@@ -33,5 +33,5 @@ export const E = (t: string= 'div') => {
 
 
 export const C = (...classNames:string[])=>{
-    return classNames.join(" ").replace("  ","").trim();
+    return classNames.join(" ").replace("  "," ").trim();
 };

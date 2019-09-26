@@ -4,6 +4,7 @@ import ButtonS from '$u/themes/default/Button/success'
 import ButtonD from '$u/themes/default/Button/danger'
 import ButtonW from '$u/themes/default/Button/warning'
 import CheckBox from '$u/themes/default/CheckBox'
+import Radio from '$u/themes/default/Radio'
 
 let C: React.FC<P>;
 
@@ -19,6 +20,14 @@ C = () => (
         <ButtonW.C text_1={"ButtonW"}/>
         <hr/>
         <CheckBox.C label={"label"} id={"id"} name={"name"}/>
+        <CheckBox.C label={"label"} id={"id"} name={"name"} checked={true}/>
+        <CheckBox.C label={"label"} id={"id"} name={"name"} disabled={true} checked={true}/>
+        <CheckBox.C label={"label"} id={"id"} name={"name"} disabled={true}/>
+        <hr/>
+            <Radio.C label={"label"} id={"id"} name={"name"}/>
+            <Radio.C label={"label"} id={"id"} name={"name"} checked={true}/>
+            <Radio.C label={"label"} id={"id"} name={"name"} disabled={true} checked={true}/>
+            <Radio.C label={"label"} id={"id"} name={"name"} disabled={true}/>
     </div>
 );
 

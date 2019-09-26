@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {E, C, ifDisplay} from '$u/h'
-
+import iconDisableLine from '$u/parts/icon/h'
 namespace N {
     export let L: (style: S) => React.FC<P>;
 
@@ -40,7 +40,7 @@ N.L = (style) => (props) => {
     let svgBox = E().P({
         className: C(style.svgBox)
     });
-    let svg_1 = ifDisplay(checked && !props.disabled, (
+    let svg = ifDisplay(checked && !props.disabled, (
         E('svg').P({
             xmlns: "http://www.w3.org/2000/svg",
             width: "14",
@@ -48,22 +48,7 @@ N.L = (style) => (props) => {
             viewBox: "0 0 24 24",
             className: C(style.check),
         }).Children(
-            E('path').P({
-                d: "M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"
-            }).done()
-        )
-    ));
-    let svg_2 = ifDisplay(props.disabled, (
-        E('svg').P({
-            xmlns: "http://www.w3.org/2000/svg",
-            width: "14",
-            height: "14",
-            viewBox: "0 0 24 24",
-            className: C(style.minus),
-        }).Children(
-            E('path').P({
-                d: "M0 10h24v4h-24z"
-            }).done()
+            E('circle').P({cx:"12",cy:"12",r:"12"}).done()
         )
     ));
     let label = ifDisplay(Boolean(props.label), E('label').P({
@@ -77,8 +62,7 @@ N.L = (style) => (props) => {
         main.Children(
             input,
             svgBox.Children(
-                svg_1,
-                svg_2
+                svg
             ),
             label
         )
