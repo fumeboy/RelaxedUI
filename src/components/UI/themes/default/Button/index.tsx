@@ -5,7 +5,7 @@ import success from './success/style.less'
 import primary from './primary/style.less'
 import {L, P} from '$u/layout/Button'
 
-export let A = {
+let A = {
     normal,
     danger,
     warning,
@@ -13,4 +13,6 @@ export let A = {
     primary,
 };
 
-export default {A, P, L}
+let C = (key = normal) => L(key);
+
+export default {A, P, C}

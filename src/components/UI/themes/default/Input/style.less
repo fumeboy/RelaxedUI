@@ -1,0 +1,84 @@
+@import "../theme";
+
+.ins {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 12px;
+  margin-bottom: 11px;
+}
+
+.success {
+  .input {
+    color: @success;
+    border-bottom-color: @success;
+  }
+
+  .msg {
+    color: @success;
+  }
+}
+
+.warning {
+  .input {
+    color: @warning;
+    border-bottom-color: @warning;
+  }
+
+  .msg {
+    color: @warning;
+  }
+}
+
+.error {
+  .input {
+    color: @danger;
+    border-bottom-color: @danger;
+  }
+
+  .msg {
+    color: @danger;
+  }
+}
+
+.input {
+  border: 0;
+  border-radius: 3px;
+  padding: 12px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  color: #333333;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 10px solid transparent;
+
+  &::placeholder {
+    color: #999999;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    box-shadow: none;
+    background-color: @grey;
+    border-bottom-color: @grey
+  }
+}
+
+.msg {
+  margin-top: 10px;
+  font-size: 14px;
+  margin-left: 12px;
+}

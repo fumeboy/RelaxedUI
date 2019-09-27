@@ -1,0 +1,44 @@
+@import "../theme.less";
+
+.ins {
+  background-color: white;
+  width: 50px;
+  border-radius: 22px;
+  display: inline-flex;
+  padding: 4px;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  margin: 20px;
+}
+
+.svgBox {
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+
+  svg {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.on {
+  transform: translatex(28px);
+
+  svg {
+    fill: @primary
+  }
+}
+
+.off {
+  svg {
+    fill: @grey
+  }
+}
+
+.disabled {
+  background-color: @grey;
+
+  svg {
+    fill: @grey_h1
+  }
+}

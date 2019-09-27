@@ -5,4 +5,6 @@ export let A = {
     normal,
 };
 
-export default {A, P, L}
+let C = (key = normal) => L(key);
+
+export default {A, P, C}

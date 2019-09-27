@@ -1,5 +1,5 @@
 import normal from './style.less'
-import {L, P} from '$u/layout/CheckBox'
+import {L, P} from '$u/layout/Switch'
 
 export let A = {
     normal,
