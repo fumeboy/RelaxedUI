@@ -4,33 +4,26 @@ import disable_line_ from '$u/layout/Icon/disable_line'
 import svg_ from '$u/layout/Icon/h'
 import circle_ from '$u/layout/Icon/circle'
 
-namespace N {
-    export let L: (appearance: any) => React.FC<P>;
 
-    export class P {
-        label!: string;
-        id!: string;
-        name!: string;
-        ifChecked?: boolean = false;
-        ifDisabled?: boolean = false;
-    }
+let L: (appearance: any) => React.FC<P>;
 
-    export class S {
-        disabled: string = "";
-        svgBox: string = "";
-        input: string = "";
-        checked: string = "";
-        ins: string = "";
-        label: string = "";
-        check: string = "";
-        minus: string = "";
-    }
+class P {
+    label!: string;
+    id!: string;
+    name!: string;
+    ifChecked?: boolean = false;
+    ifDisabled?: boolean = false;
 }
 
-N.L = (appearance) => (props) => {
+L = (appearance) => (props) => {
     let [checked, set_checked] = useState(props.ifChecked);
     let main = E().P({
-        className: C(appearance.ins),
+        className: C(
+            appearance.ins,
+            checked && props.ifDisabled ? appearance.checked_and_disabled:null,
+            checked && !props.ifDisabled ? appearance.checked:null,
+            !checked && props.ifDisabled ? appearance.disabled:null,
+        ),
         onClick: () => props.ifDisabled ? null : set_checked(!checked)
     });
     let input = E('input').P({
@@ -81,4 +74,4 @@ N.L = (appearance) => (props) => {
         )
     )
 };
-export default N
+export {L, P}

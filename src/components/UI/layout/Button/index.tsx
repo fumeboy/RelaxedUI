@@ -1,24 +1,20 @@
 import React from 'react'
 import {E, C} from '$u/h'
 
-namespace N {
-    export let L: (appearance: any) => React.FC<P>;
-    export class S{
-        ins: string="";
-        text_2: string="";
-        text_1: string = "";
-    }
-    export class P {
-        text_1?: string;
-        text_2?: string;
-        ifDisabled?: boolean = false;
-    }
+let L: (appearance: any) => React.FC<P>;
+
+class P {
+    text_1?: string;
+    text_2?: string;
+    ifDisabled?: boolean = false;
 }
 
-N.L  = (appearance) => (props) => {
+L  = (appearance) => (props) => {
+    // elem
     let main = E().P({
         className: C(
-            appearance.ins
+            appearance.ins,
+            props.ifDisabled ? appearance.disabled : null
         ),
         disabled: props.ifDisabled,
     });
@@ -32,4 +28,4 @@ N.L  = (appearance) => (props) => {
         )
     )
 };
-export default N
+export {L, P}
