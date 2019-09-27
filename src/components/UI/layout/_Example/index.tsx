@@ -10,7 +10,7 @@ L = (style) => (props) => {
         className: C()
     });
 
-    return e1.Children()
+    return e1.pack()
 };
 
 export default {L, P}

@@ -1,15 +1,18 @@
 import React, {useState} from 'react'
-import {E, C, ifDisplay} from '$u/h'
-import iconDisableLine from '$u/parts/icon/h'
+import {E, C, ifShow} from '$u/h'
+import disable_line_ from '$u/layout/Icon/disable_line'
+import svg_ from '$u/layout/Icon/h'
+import circle_ from '$u/layout/Icon/circle'
+
 namespace N {
-    export let L: (style: S) => React.FC<P>;
+    export let L: (appearance: any) => React.FC<P>;
 
     export class P {
         label!: string;
         id!: string;
         name!: string;
-        checked?: boolean = false;
-        disabled?: boolean = false;
+        ifChecked?: boolean = false;
+        ifDisabled?: boolean = false;
     }
 
     export class S {
@@ -24,45 +27,55 @@ namespace N {
     }
 }
 
-N.L = (style) => (props) => {
-    let [checked, set_checked] = useState(props.checked);
+N.L = (appearance) => (props) => {
+    let [checked, set_checked] = useState(props.ifChecked);
     let main = E().P({
-        className: C(style.ins, props.disabled ? style.disabled : "", checked ? style.checked : "",),
-        onClick: ()=>props.disabled?null:set_checked(!checked)
+        className: C(appearance.ins),
+        onClick: () => props.ifDisabled ? null : set_checked(!checked)
     });
     let input = E('input').P({
         id: props.id,
         name: props.name,
         type: "checkbox",
-        disabled: props.disabled,
-        className: C(style.input)
+        disabled: props.ifDisabled,
+        className: C(appearance.input)
     }).done();
     let svgBox = E().P({
-        className: C(style.svgBox)
+        className: C(appearance.svgBox)
     });
-    let svg = ifDisplay(checked && !props.disabled, (
-        E('svg').P({
-            xmlns: "http://www.w3.org/2000/svg",
+    let svg_1 = ifShow(checked && !props.ifDisabled, (
+        svg_().P({
+            className: C(appearance.check),
             width: "14",
             height: "14",
             viewBox: "0 0 24 24",
-            className: C(style.check),
-        }).Children(
-            E('circle').P({cx:"12",cy:"12",r:"12"}).done()
+        }).pack(
+            circle_().P({cx: "12", cy: "12", r: "12"}).done()
         )
     ));
-    let label = ifDisplay(Boolean(props.label), E('label').P({
+    let svg_2 = ifShow(props.ifDisabled,
+        svg_().P({
+            width: "14",
+            height: "14",
+            viewBox: "0 0 24 24",
+            className: C(appearance.minus),
+        }).pack(
+            disable_line_().done()
+        )
+    );
+    let label = ifShow(Boolean(props.label), E('label').P({
         htmlFor: props.id,
-        className: C(style.label)
-    }).Children(
+        className: C(appearance.label)
+    }).pack(
         props.label
     ));
 
     return (
-        main.Children(
+        main.pack(
             input,
-            svgBox.Children(
-                svg
+            svgBox.pack(
+                svg_1,
+                svg_2
             ),
             label
         )

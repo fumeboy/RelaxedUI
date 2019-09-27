@@ -1,16 +1,33 @@
-import React from 'react'
-import style from './style.less'
-import layoutC from '$u/layout/Radio'
-let C: React.FC<P>;
+import normal from './style.less'
+import disabled from './disabled/style.less'
+import checked from './checked/style.less'
+import checked_disabled from './checked_disabled/style.less'
+import layout from '$u/layout/Radio'
 
-let S:layoutC.S = {
-    minus: style.minus, check: style.check, checked: style.checked,
-    disabled: style.disabled, input: style.input, ins:style.ins, label: style.label, svgBox: style.svgBox
-};
-
-class P extends layoutC.P {
+namespace N {
+    export let A = {
+        normal,
+        disabled,
+        checked,
+        checked_disabled
+    };
+    export class P extends layout.P{
+    }
+    export let C = (props:P) => {
+        let appearance;
+        if(props.ifChecked) {
+            if (props.ifDisabled) {
+                appearance = checked_disabled;
+            }else{
+                appearance = checked
+            }
+        }else if(props.ifDisabled){
+            appearance = disabled
+        }else{
+            appearance = normal
+        }
+        return layout.L(appearance)(props);
+    };
 }
 
-C = layoutC.L(S);
-
-export default {C, P}
+export default N

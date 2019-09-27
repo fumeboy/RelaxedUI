@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
-import {E, C, ifDisplay} from '$u/h'
+import {E, C, ifShow} from '$u/h'
+import svg_ from '$u/layout/Icon/h'
+import right_ from '$u/layout/Icon/right'
+import disable_line_ from "$u/layout/Icon/disable_line";
 
 namespace N {
-    export let L: (style: S) => React.FC<P>;
-
+    export let L: (appearance: any) => React.FC<P>;
     export class P {
         label!: string;
         id!: string;
         name!: string;
-        checked?: boolean = false;
-        disabled?: boolean = false;
+        ifChecked?: boolean = false;
+        ifDisabled?: boolean = false;
     }
-
     export class S {
         disabled: string = "";
         svgBox: string = "";
@@ -24,59 +25,53 @@ namespace N {
     }
 }
 
-N.L = (style) => (props) => {
-    let [checked, set_checked] = useState(props.checked);
+N.L = (appearance) => (props) => {
+    let [checked, set_checked] = useState(props.ifChecked);
     let main = E().P({
-        className: C(style.ins, props.disabled ? style.disabled : "", checked ? style.checked : "",),
-        onClick: ()=>props.disabled?null:set_checked(!checked)
+        className: C(appearance.ins),
+        onClick: () => props.ifDisabled ? null : set_checked(!checked)
     });
     let input = E('input').P({
         id: props.id,
         name: props.name,
         type: "checkbox",
-        disabled: props.disabled,
-        className: C(style.input)
+        disabled: props.ifDisabled,
+        className: C(appearance.input)
     }).done();
     let svgBox = E().P({
-        className: C(style.svgBox)
+        className: C(appearance.svgBox)
     });
-    let svg_1 = ifDisplay(checked && !props.disabled, (
-        E('svg').P({
-            xmlns: "http://www.w3.org/2000/svg",
+    let svg_1 = ifShow(checked && !props.ifDisabled,
+        svg_().P({
             width: "14",
             height: "14",
             viewBox: "0 0 24 24",
-            className: C(style.check),
-        }).Children(
-            E('path').P({
-                d: "M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"
-            }).done()
+            className: C(appearance.check)
+        }).pack(
+            right_().done()
         )
-    ));
-    let svg_2 = ifDisplay(props.disabled, (
-        E('svg').P({
-            xmlns: "http://www.w3.org/2000/svg",
+    );
+    let svg_2 = ifShow(props.ifDisabled,
+        svg_().P({
             width: "14",
             height: "14",
             viewBox: "0 0 24 24",
-            className: C(style.minus),
-        }).Children(
-            E('path').P({
-                d: "M0 10h24v4h-24z"
-            }).done()
+            className: C(appearance.minus)
+        }).pack(
+            disable_line_().done()
         )
-    ));
-    let label = ifDisplay(Boolean(props.label), E('label').P({
+    );
+    let label = ifShow(Boolean(props.label), E('label').P({
         htmlFor: props.id,
-        className: C(style.label)
-    }).Children(
+        className: C(appearance.label)
+    }).pack(
         props.label
     ));
 
     return (
-        main.Children(
+        main.pack(
             input,
-            svgBox.Children(
+            svgBox.pack(
                 svg_1,
                 svg_2
             ),

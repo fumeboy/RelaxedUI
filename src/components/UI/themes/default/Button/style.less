@@ -1,24 +1,23 @@
-@import '../../../layout/Button/layout';
 @import "../theme";
-.lock {
-
-}
-
-.WithBorder {
-  border: 2px solid #000;
-}
-
-.WithBorderRadius {
-  border-radius: 1rem;
-}
 
 .withIcon {
 
 }
 
 .ins{
-  background: #fff;
-  border-color: #eee;
+  font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 15px 25px;
+  border-width: 2px;
+  border-style: solid;
+  border-image: initial;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out 0s;
+  display: inline-block;
+  margin: 20px;
+  background: @light;
+  border-color: @grey;
   color: @dark;
   &:active,
   &:focus {
@@ -31,5 +30,8 @@
 
   &:active {
     opacity: 1;
+  }
+  & > .text_2 {
+    display: none;
   }
 }

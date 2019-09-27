@@ -1,21 +1,26 @@
-@import '../../../layout/Radio/layout';
 @import "../theme";
+.ins {
+  font-family: "Nunito Sans", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: 20px;
+  margin: 10px;
+}
 
-.disabled {
-  .input {
-    background-color: @grey;
-    border-color: @grey;
-
-    &:hover {
-      border-color: @grey;
-    }
-  }
-  .svgBox>.minus {
-    fill: @grey_h1;
-  }
+.label{
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .input {
+  all: unset;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: none;
   border-width: 3px;
   border-style: solid;
   border-image: initial;
@@ -27,18 +32,11 @@
     border-color: @primary;
   }
 }
-
-.checked {
-  .input {
-    border: 3px solid @primary;
-    background-color: @light;
-  }
-  .svgBox > .check {
-    fill: @primary;
-  }
-}
-
 .svgBox {
+  position: absolute;
+  display: block;
+  top: 10%;
+  left: 6px;
   color: @light;
 
   & > .check {

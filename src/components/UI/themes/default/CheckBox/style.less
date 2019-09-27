@@ -1,50 +1,43 @@
-@import '../../../layout/CheckBox/layout';
 @import "../theme";
 
-.disabled {
+.ins {
+  font-family: "Nunito Sans", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: 20px;
+  margin: 10px;
   .input {
-    background-color: @grey;
-    border-color: @grey;
+    transition: all 0.2s ease-in-out 0s;
+    all: unset;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: none;
+    border:3px solid @grey;
+    border-radius: 3px;
 
-    &:hover {
-      border-color: @grey;
-    }
-  }
-  .svgBox>.minus {
-    fill: @grey_h1;
-  }
-}
-
-.input {
-  border-width: 3px;
-  border-style: solid;
-  border-image: initial;
-  border-radius: 3px;
-  transition: all 0.2s ease-in-out 0s;
-  border-color: @grey;
-
-  &:hover {
-    border-color: @primary;
-  }
-}
-
-.checked {
-  .input {
-    border: 3px solid @primary;
-    background-color: @primary;
     &:hover {
       border-color: @primary;
     }
   }
-  .svgBox>.minus {
-    fill: @light;
+
+  .label {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
   }
-}
 
-.svgBox {
-  color: @light;
+  .svgBox {
+    position: absolute;
+    display: block;
+    top: 15%;
+    left: 6px;
+    color: @light;
 
-  & > .check {
-    fill: @light;
+    & > .check {
+      fill: @light;
+    }
   }
 }
