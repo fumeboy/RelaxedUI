@@ -16,29 +16,10 @@ class P {
 }
 
 L = (appearance) => (props) => {
-    let statusStyle = () => {
-        let style;
-        switch (props.status) {
-            case 0:
-                break;
-            case 1:
-                style = appearance.success;
-                break;
-            case 2:
-                style = appearance.warning;
-                break;
-            case 3:
-                style = appearance.error;
-                break;
-        }
-        return style
-    };
     //elem
     let main = E().P({
         className: C(
             appearance.ins,
-            props.ifDisabled ? appearance.disabled : null,
-            statusStyle()
         )
     });
     let label = ifShow(Boolean(props.label), E('label').P({

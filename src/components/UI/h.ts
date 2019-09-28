@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactNode, useState} from "react";
 
 export class styleType {
     [className: string]: string
@@ -29,11 +29,11 @@ export function ifShow(b:boolean=false, e:any){
     return b ? e : null
 }
 
-export function selectAppearance(key:string|undefined, appearances: {[key:string]:any}) {
-    if(key){
-        return appearances[key]
-    }else{
-        return appearances[1]
+export function makeState(initState: any) {
+    let u = useState(initState);
+    return {
+        value: u[0],
+        change: u[1]
     }
 }
 

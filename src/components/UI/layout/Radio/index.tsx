@@ -13,18 +13,15 @@ class P {
     name!: string;
     ifChecked?: boolean = false;
     ifDisabled?: boolean = false;
+    funcCheck!: ()=>void;
 }
 
 L = (appearance) => (props) => {
-    let [checked, set_checked] = useState(props.ifChecked);
     let main = E().P({
         className: C(
             appearance.ins,
-            checked && props.ifDisabled ? appearance.checked_and_disabled:null,
-            checked && !props.ifDisabled ? appearance.checked:null,
-            !checked && props.ifDisabled ? appearance.disabled:null,
         ),
-        onClick: () => props.ifDisabled ? null : set_checked(!checked)
+        onClick: () => props.ifDisabled ? null : props.funcCheck()
     });
     let input = E('input').P({
         id: props.id,
@@ -36,7 +33,7 @@ L = (appearance) => (props) => {
     let svgBox = E().P({
         className: C(appearance.svgBox)
     });
-    let svg_1 = ifShow(checked && !props.ifDisabled, (
+    let svg_1 = ifShow(props.ifChecked && !props.ifDisabled, (
         svg_().P({
             className: C(appearance.check),
             width: "14",

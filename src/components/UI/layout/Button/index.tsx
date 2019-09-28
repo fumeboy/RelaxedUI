@@ -14,7 +14,6 @@ L  = (appearance) => (props) => {
     let main = E().P({
         className: C(
             appearance.ins,
-            props.ifDisabled ? appearance.disabled : null
         ),
         disabled: props.ifDisabled,
     });

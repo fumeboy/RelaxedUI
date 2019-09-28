@@ -8,20 +8,19 @@ let L: (appearance: any) => React.FC<P>;
 class P {
     ifChecked?: boolean = false;
     ifDisabled?: boolean = false;
+    funcCheck!: ()=>void;
 }
 
+
 L = (appearance) => (props) => {
-    let [checked, set_checked] = useState(props.ifChecked);
     let main = E().P({
         className: C(
             appearance.ins,
-            props.ifDisabled ? appearance.disabled : null,
-        ), onClick: () => props.ifDisabled ? null : set_checked(!checked)
+        ), onClick: () => props.ifDisabled ? null : props.funcCheck()
     });
     let svgBox = E().P({
         className: C(
             appearance.svgBox,
-            checked ? appearance.on : appearance.off,
         )
     });
     return main.pack(
