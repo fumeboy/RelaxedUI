@@ -2,10 +2,9 @@ import normal from './style.less'
 import danger from './danger/style.less'
 import warning from './warning/style.less'
 import success from './success/style.less'
-// import disabled from './disabled/style.less'
+import disabled from './disabled/style.less'
 import {L, P} from '$u/layout/Input'
 import React from "react";
-import disabled from "$u/themes/default/Button/disabled/style.less";
 
 let A = {
     normal,

@@ -1,4 +1,4 @@
-UI 工具
+# relaxedUI
 
 计划是：
 
@@ -6,121 +6,46 @@ UI 工具
 
 当前仅就 react 设计了一个框架。
 
-作为展示的文件结构：
+启动这个项目：(你需要先安装nodejs环境)
 
-```
-.
-|____index.ts
-|____h.ts
-|____Affaris
-| |____readme.md
-| |____Home
-| | |____index.tsx
-|____UI
-| |____h.ts
-| |____readme.md
-| |____layout
-| | |____readme.md
-| | |____Button
-| | | |____layout.less
-| | | |____index.tsx
-| |____themes
-| | |____readme.md
-| | |____main.less
-| | |____default
-| | | |____style.less
-| | | |____Button
-| | | | |____style.less
-| | | | |____success
-| | | | | |____index.tsx
-| | | | | |____style.less
-| | | | |____warning
-| | | | | |____index.tsx
-| | | | | |____style.less
-| | | | |____primary
-| | | | | |____index.tsx
-| | | | | |____style.less
-| | | | |____danger
-| | | | | |____index.tsx
-| | | | | |____style.less
+```shell
+npm install
+npm run start
 ```
 
-设计的组件结构大致是这样的：
-```
-|____Affaris
-| |____业务组件 有逻辑 与样式解耦
-|____UI
-| |____UI 组件 无逻辑 
-| |____layout
-| | |____布局组件，是富样式组件的接口/抽象
-| |____themes
-| | |____富样式组件，是layout的实例化
-```
+和普通的UI框架有设计上的不同，主要从复用、可维护等方面考虑。
 
-就button组件进行展示：
+---
 
-UI-layout 部分：
-```
-import React from 'react'
-import layout from './layout.less'
-import {styleType} from '@/components/UI/h'
+在 src/components 文件夹中，有两个文件夹： UI 与 Affaris
 
-let L:(style:styleType)=>React.FC<P>;
+这两个文件夹的含义是：
 
-class P {
-    public text_1?: string;
-    public text_2?: string;
-    public ifLock?: boolean=false;
-    public ifWithBorder?: boolean=false;
-    public ifWithBorderRadius?: boolean=false;
-}
+Affaris：主要的业务组件，是对于 UI 组件的使用
 
-L = (style) => (props) => {
-    return (
-        <div
-            className={[
-                layout.ins,
-                style.ins,
-                props.ifLock ? style.lock : null,
-                props.ifWithBorder ? style.WithBorder : null,
-                props.ifWithBorderRadius ? style.WithBorderRadius : null,
-            ].join(" ")}
-        >
-            <div className={layout.text_1}>{props.text_1}</div>
-            <div className={layout.text_2}>{props.text_2}</div>
-        </div>
-    )
-};
+UI： 这个项目的主要作业处，是编写 UI 组件的地方。
 
-export default {L, P}
-```
+---
 
-UI-themes 部分
+在 src/components/UI 文件夹中，有两个文件夹：layout 与 themes
 
-```
-import React, {useState} from 'react'
-import style from './style.less'
-import layoutC from '@/components/UI/layout/Button'
+这两个文件夹的含义是：
 
-let C: React.FC<P>;
+layout：无样式的UI组件，定义了组件的基本布局和交互逻辑。实际不使用此类组件直接展示，而是作为组件"接口"。
 
-class P extends layoutC.P {
-}
+themes： layout 接口的"实现"，是被"上色"的layout
 
-C = layoutC.L(style);
+---
 
-export default {C, P}
-```
+themes 中，每个对于 layout 的实现都应配对具体的 视觉上 的样式"状态"。
 
-```
-@import "../style";
+比如：
 
-.ins {
-  background: none rgb(45, 78, 245);
-  border-color: rgb(45, 78, 245);
-  color: @light;
-  box-shadow: rgba(45, 78, 245, 0.5) 0 10px 25px;
-}
-```
+CheckBox（多选框）：视觉状态有：normal、checked、disabled、checked&disabled
 
-具体请见 src/components/UI/ 部分
+![checkbox.png](https://i.loli.net/2019/09/28/BogPGHrvse9Smjb.jpg)
+
+Button: normal、success、danger、warning、disabled
+![button.png](https://i.loli.net/2019/09/28/Rr6XESauFbhv9k8.jpg)
+
+
