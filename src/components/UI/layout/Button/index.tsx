@@ -13,7 +13,7 @@ L  = (appearance) => (props) => {
     // elem
     let main = E().P({
         className: C(
-            appearance.ins,
+            appearance.main,
         ),
         disabled: props.ifDisabled,
     });

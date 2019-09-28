@@ -1,4 +1,4 @@
-import normal from './style.less'
+import normal from './normal/style.less'
 import disabled from './disabled/style.less'
 import checked from './checked/style.less'
 import checked_and_disabled from './checked_and_disabled/style.less'

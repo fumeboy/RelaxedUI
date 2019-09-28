@@ -1,16 +1,18 @@
 import React from 'react'
-import {styleType, E, C} from '$u/h'
+import {E, C} from '$u/h'
 
-let L: (style: styleType) => React.FC<P>;
+let L: (appearance: any) => React.FC<P>;
 
 class P {}
 
-L = (style) => (props) => {
-    let e1 = E().P({
-        className: C()
+L  = (appearance) => (props) => {
+    // elem
+    let main = E().P({
+        className: C(
+            appearance.main,
+        ),
     });
 
-    return e1.pack()
+    return main.pack()
 };
-
-export default {L, P}
+export {L, P}

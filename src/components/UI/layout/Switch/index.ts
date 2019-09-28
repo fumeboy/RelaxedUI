@@ -15,7 +15,7 @@ class P {
 L = (appearance) => (props) => {
     let main = E().P({
         className: C(
-            appearance.ins,
+            appearance.main,
         ), onClick: () => props.ifDisabled ? null : props.funcCheck()
     });
     let svgBox = E().P({
