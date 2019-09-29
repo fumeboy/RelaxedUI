@@ -1,7 +1,7 @@
-import normal from './normal/style.less'
-import disabled from './disabled/style.less'
-import checked from './checked/style.less'
-import checked_and_disabled from './checked_and_disabled/style.less'
+import normal from './normal.less'
+import disabled from './disabled.less'
+import checked from './checked.less'
+import checked_and_disabled from './checked_and_disabled.less'
 import {L, P} from '$u/layout/Radio'
 import React from "react";
 

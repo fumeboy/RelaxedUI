@@ -1,4 +1,4 @@
-import normal from './normal/style.less'
+import normal from './normal.less'
 import {L, P} from '$u/layout/FileInput'
 import React from "react";
 

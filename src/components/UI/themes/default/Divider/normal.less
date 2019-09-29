@@ -1,0 +1,23 @@
+@import "../theme";
+
+.main{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: @baseMargin*8 0;
+  line-height: 1;
+  height: 0;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  border-bottom: 1px solid @grey;
+  .text{
+    color: @grey;
+    font-size: 80%;
+    display: inline-block;
+    padding: @baseSize @baseSize*2;
+    border: 1px solid @grey;
+    background: @light;
+    border-radius: @baseSize/2;
+  }
+}

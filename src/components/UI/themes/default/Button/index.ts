@@ -1,9 +1,9 @@
 import normal from './normal/style.less'
-import danger from './danger/style.less'
+import danger from './danger.less'
 import warning from './warning/style.less'
 import success from './success/style.less'
 import primary from './primary/style.less'
-import disabled from './disabled/style.less'
+import disabled from './disabled.less'
 import {L, P} from '$u/layout/Button'
 import React from "react";
 

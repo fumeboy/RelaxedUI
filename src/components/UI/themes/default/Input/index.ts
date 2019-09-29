@@ -1,8 +1,8 @@
-import normal from './normal/style.less'
-import danger from './danger/style.less'
-import warning from './warning/style.less'
-import success from './success/style.less'
-import disabled from './disabled/style.less'
+import normal from './normal.less'
+import danger from './danger.less'
+import warning from './warning.less'
+import success from './success.less'
+import disabled from './disabled.less'
 import {L, P} from '$u/layout/Input'
 import React from "react";
 

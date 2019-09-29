@@ -1,4 +1,4 @@
-import normal from './normal/style.less'
+import normal from './normal.less'
 import {L, P} from '$u/layout/Divider'
 import React from "react";
 
