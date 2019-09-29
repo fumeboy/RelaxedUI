@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, HashRouter as Router } from 'react-router-dom';
 import { Home } from './components';
-import '$u/themes/main.less'
+import '$u/themes/reset.less'
 
 class App extends Component {
     render() {

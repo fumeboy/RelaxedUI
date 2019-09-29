@@ -16,6 +16,7 @@ class Elem {
     }
     contain(...c: ReactNode[]) {
         // 攘括子元素
+        // this.c.concat(c);
         this.c = c;
         return this
     }

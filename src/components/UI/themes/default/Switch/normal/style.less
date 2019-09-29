@@ -2,21 +2,23 @@
 
 .main {
   background-color: white;
-  width: 50px;
-  border-radius: 22px;
+  width: @baseSize*12;
+  border-radius: @baseSize*5;
   display: inline-flex;
-  padding: 4px;
+  padding: @baseSize;
   align-items: center;
   cursor: pointer;
   font-family: "Nunito Sans", sans-serif;
-  margin: 20px;
+  margin: @baseMargin*5;
 }
 
 .svgBox {
-  height: 20px;
+  height: @baseSize*5;
   transition: all 0.2s ease-in-out;
 
   svg {
+    height: @baseSize*5;
+    width: @baseSize*5;
     transition: all 0.2s ease-in-out;
     fill: @grey
   }

@@ -1,7 +1,7 @@
 @import "../../theme";
 
 .main {
-  margin: 20px;
+  margin: @baseMargin*4;
   display: flex;
   flex-direction: column;
   font-family: "Nunito Sans", sans-serif;
@@ -9,23 +9,23 @@
 
 .label {
   font-weight: 700;
-  font-size: 14px;
-  margin-left: 12px;
-  margin-bottom: 11px;
+  font-size: @baseSize*3;
+  margin-left: @baseMargin*3;
+  margin-bottom: @baseMargin*3;
 }
 
 .input {
   border: 0;
-  border-radius: 3px;
-  padding: 12px;
+  border-radius: @baseSize;
+  padding: @baseSize*3;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 14px;
+  font-size: @baseSize*3;
   color: #333333;
   transition: all 0.2s ease-in-out;
   border-bottom: 10px solid transparent;
 
   &::placeholder {
-    color: #999999;
+    color: @grey_h1;
   }
 
   &:focus,
@@ -41,7 +41,8 @@
 }
 
 .msg {
-  margin-top: 10px;
-  font-size: 14px;
-  margin-left: 12px;
+  margin-top: @baseMargin*2.5;
+  font-size: @baseSize*3;
+  margin-left: @baseMargin*2;
+  margin-bottom: @baseMargin*4;
 }

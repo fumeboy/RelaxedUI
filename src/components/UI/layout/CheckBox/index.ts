@@ -35,8 +35,6 @@ L = (appearance) => (props) => {
     });
     let svg_1 = ifShow(props.ifChecked && !props.ifDisabled,
         svg_().P({
-            width: "14",
-            height: "14",
             viewBox: "0 0 24 24",
             className: C(appearance.check)
         }).pack(
@@ -45,8 +43,6 @@ L = (appearance) => (props) => {
     );
     let svg_2 = ifShow(props.ifDisabled,
         svg_().P({
-            width: "14",
-            height: "14",
             viewBox: "0 0 24 24",
             className: C(appearance.minus)
         }).pack(

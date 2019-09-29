@@ -35,7 +35,7 @@ L = (appearance) => (props) => {
         placeholder: props.placeholder,
         disabled: props.ifDisabled
     }).done();
-    let msg = ifShow(Boolean(props.msg), E('msg').P({className: C(appearance.msg)}).pack(props.msg));
+    let msg = ifShow(Boolean(props.msg), E('span').P({className: C(appearance.msg)}).pack(props.msg));
     return main.pack(
         label,
         input,

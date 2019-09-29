@@ -26,8 +26,6 @@ L = (appearance) => (props) => {
     return main.pack(
         svgBox.pack(
             svg().P({
-                width: "20",
-                height: "20",
                 viewBox: "0 0 24 24"
             }).pack(
                 circle().P({cx: "12", cy: "12", r: "12"}).done()

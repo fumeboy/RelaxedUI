@@ -6,17 +6,17 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-  height: 20px;
-  margin: 10px;
+  height: @baseSize*4;
+  margin: @baseMargin*2.5;
   .input {
     transition: all 0.2s ease-in-out 0s;
     all: unset;
-    width: 20px;
-    height: 20px;
+    width: @baseSize*5;
+    height: @baseSize*5;
     display: block;
     background: none;
-    border:3px solid @grey;
-    border-radius: 3px;
+    border:@baseSize/2 solid @grey;
+    border-radius: @baseSize/2;
 
     &:hover {
       border-color: @primary;
@@ -24,8 +24,8 @@
   }
 
   .label {
-    font-size: 14px;
-    margin-left: 10px;
+    font-size: @baseSize*3;
+    margin-left: @baseMargin*2;
     cursor: pointer;
   }
 
@@ -33,10 +33,15 @@
     position: absolute;
     display: block;
     top: 15%;
-    left: 6px;
+    left: @baseSize*1.5;
     color: @light;
 
-    & > .check {
+    & > .check, .minus {
+      width: @baseSize*3;
+      height: @baseSize*3;
+    }
+
+    & > .check{
       fill: @light;
     }
   }
