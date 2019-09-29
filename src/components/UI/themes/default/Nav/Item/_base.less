@@ -1,0 +1,25 @@
+@import "../../theme";
+
+.main{
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  border-radius: 2px;
+  padding: @baseSize @baseSize*1.5;
+  text-decoration: none;
+  line-height: 20px;
+  color: inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 @baseSize*2;
+  &:hover{
+    background: @grey;
+  }
+}

@@ -12,6 +12,8 @@ import Divider from '$u/themes/default/Divider'
 import Menu from '$u/themes/default/Menu'
 import MenuItem from '$u/themes/default/Menu/Item'
 import Container from '$u/themes/default/Container'
+import Nav from '$u/themes/default/Nav'
+import NavItem from '$u/themes/default/Nav/Item'
 import {E, makeState} from '$u/h'
 
 let C: React.FC;
@@ -37,44 +39,54 @@ C = () => {
         },
         FileInput: {}
     };
-    return E().pack(
-        E('p').pack("This is Home Page"),
-        Container.C({
-            children: [
-                Divider.C({text: "Divider left", position: 1}),
-                Divider.C({text: "Divider center"}),
-                Divider.C({text: "Divider right", position: 2}),]
+    return E().pack([
+        Nav.C({title: "title", nav_left:[
+                NavItem.C({text: "item"}),
+                NavItem.C({text: "Nav item", ifActive: true}),
+            ], nav_right:[
+                NavItem.C({text: "item"}),
+                NavItem.C({text: "Nav item"}),
+            ], expand_area:[]
         }),
+        E().pack([
+            Breadcrumbs.C({
+                items: [
+                    BreadcrumbsItem.C({text: "Home"}),
+                    BreadcrumbsItem.C({text: "Breadcrumbs item"}),
+                    BreadcrumbsItem.C({text: "Breadcrumbs Breadcrumbs item"}),
+                ]
+            })]
+        ),
         Container.C({
                 children: [
                     ButtonGroup.C({
                         Items: [
                             Button.C({text_1: "ButtonN", size: 1}),
-                            Button.C({text_1: "ButtonP", appearance: Button.A.primary, size: 1}),
-                            Button.C({text_1: "ButtonS", appearance: Button.A.success, size: 1}),
-                            Button.C({text_1: "ButtonD", appearance: Button.A.danger, size: 1}),
-                            Button.C({text_1: "ButtonW", appearance: Button.A.warning, size: 1}),
+                            Button.C({text_1: "ButtonP", size: 1}),
+                            Button.C({text_1: "ButtonS", ifDisabled: true, size: 1}),
+                            Button.C({text_1: "ButtonD", size: 1}),
+                            Button.C({text_1: "ButtonW",size: 1}),
                             Button.C({text_1: "ButtonX", ifDisabled: true, size: 1}),
                         ]
                     }),
                     Divider.C({}),
-                    E().pack(
+                    E().pack([
                         Button.C({text_1: "ButtonN", size: 1}),
                         Button.C({text_1: "ButtonP", appearance: Button.A.primary, size: 1}),
                         Button.C({text_1: "ButtonS", appearance: Button.A.success, size: 1}),
                         Button.C({text_1: "ButtonD", appearance: Button.A.danger, size: 1}),
                         Button.C({text_1: "ButtonW", appearance: Button.A.warning, size: 1}),
                         Button.C({text_1: "ButtonX", ifDisabled: true, size: 1}),
-                    ),
+                    ]),
                     Divider.C({}),
-                    E().pack(
+                    E().pack([
                         Button.C({text_1: "ButtonN"}),
                         Button.C({text_1: "ButtonP", appearance: Button.A.primary}),
                         Button.C({text_1: "ButtonS", appearance: Button.A.success}),
                         Button.C({text_1: "ButtonD", appearance: Button.A.danger}),
                         Button.C({text_1: "ButtonW", appearance: Button.A.warning}),
                         Button.C({text_1: "ButtonX", ifDisabled: true}),
-                    ),
+                    ]),
                 ]
             }
         ),
@@ -160,6 +172,12 @@ C = () => {
                     }),]
             }
         ),
+        Container.C({
+            children: [
+                Divider.C({text: "Divider left", position: 1}),
+                Divider.C({text: "Divider center"}),
+                Divider.C({text: "Divider right", position: 2}),]
+        }),
         Divider.C({text: "Input"}),
         Container.C({
                 children: [
@@ -178,21 +196,11 @@ C = () => {
             }
         ),
         Divider.C({text: "FileInput"}),
-        E().pack(
+        E().pack([]
             // FileInput.C({ifDisabled: false, funcUpload:()=>{},})
         ),
-        Divider.C({text: "Breadcrumbs"}),
-        E().pack(
-            Breadcrumbs.C({
-                items: [
-                    BreadcrumbsItem.C({text: "item"}),
-                    BreadcrumbsItem.C({text: "Breadcrumbs item"}),
-                    BreadcrumbsItem.C({text: "Breadcrumbs Breadcrumbs item"}),
-                ]
-            })
-        ),
         Divider.C({text: "MENU"}),
-        E().pack(
+        E().pack([
             Menu.C({
                 items: [
                     MenuItem.C({text: "item"}),
@@ -201,8 +209,8 @@ C = () => {
                     MenuItem.C({text: "Menu Menu item"}),
                 ]
             })
-        )
-    );
+        ])
+    ]);
 };
 
 export default C;

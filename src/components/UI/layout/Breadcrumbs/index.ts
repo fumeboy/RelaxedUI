@@ -15,9 +15,10 @@ L  = (appearance) => (props) => {
         ),
     });
     let link_head = E().P({className: C(appearance.link_head)}).done();
-    return main.pack(
+    return main.pack([
         link_head,
         ...props.items
-    )
+    ])
+    return main.pack(props.items)
 };
 export {L, P}

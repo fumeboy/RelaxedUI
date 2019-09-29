@@ -18,15 +18,18 @@ class Elem {
         this.p = Object.assign(this.p, p);
         return this
     }
-    contain(...c: ReactNode[]) {
+    contain(c?: ReactNode[]) {
         // 攘括子元素
-        // this.c.concat(c);
-        this.c = c;
+        if(c!=undefined){
+            this.c = this.c.concat(c);
+        }
         return this
     }
-    pack(...c: ReactNode[]) {
+    pack(c?: ReactNode[]) {
         // 攘括子元素并结束属性的修改
-        this.c = c;
+        if(c!=undefined){
+            this.c = this.c.concat(c);
+        }
         return this.done()
     }
 }
@@ -61,6 +64,7 @@ export const E = (t: string= 'div') => {
     // 新建 Elem
     let e_ = new Elem();
     e_.t = t;
+    e_.c = [];
     return e_;
 };
 

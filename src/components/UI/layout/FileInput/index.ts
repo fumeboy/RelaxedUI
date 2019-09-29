@@ -22,12 +22,12 @@ L  = (appearance) => (props) => {
     });
     let label = E('label');
     let input = E('input').P({type:"file", disabled: props.ifDisabled});
-    let msg = E('span').contain(props.msg);
+    let msg = E('span').contain([props.msg]);
 
-    return main.pack(
+    return main.pack([
         label,
         input,
         msg
-    )
+    ])
 };
 export {L, P}

@@ -37,34 +37,34 @@ L = (appearance) => (props) => {
         svg_().P({
             className: C(appearance.check),
             viewBox: "0 0 24 24",
-        }).pack(
+        }).pack([
             circle_().P({cx: "12", cy: "12", r: "12"}).done()
-        )
+        ])
     ));
     let svg_2 = ifShow(props.ifDisabled,
         svg_().P({
             viewBox: "0 0 24 24",
             className: C(appearance.minus),
-        }).pack(
+        }).pack([
             disable_line_().done()
-        )
+        ])
     );
     let label = ifShow(Boolean(props.label), E('label').P({
         htmlFor: props.id,
         className: C(appearance.label)
-    }).pack(
+    }).pack([
         props.label
-    ));
+    ]));
 
     return (
-        main.pack(
+        main.pack([
             input,
-            svgBox.pack(
+            svgBox.pack([
                 svg_1,
                 svg_2
-            ),
+            ]),
             label
-        )
+        ])
     )
 };
 export {L, P}

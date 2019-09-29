@@ -15,9 +15,7 @@ L  = (appearance) => (props) => {
     });
 
     return (
-        main.pack(
-            ...props.Items
-        )
+        main.pack(props.Items)
     )
 };
 export {L, P}

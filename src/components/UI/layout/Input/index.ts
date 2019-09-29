@@ -26,7 +26,7 @@ L = (appearance) => (props) => {
         className: C(appearance.label),
         htmlFor: props.id,
         disabled: props.ifDisabled
-    }).pack(props.label));
+    }).pack([props.label]));
     let input = E(props.multiline ? "textarea" : "input").P({
         className: C(appearance.input),
         id: props.id,
@@ -35,12 +35,12 @@ L = (appearance) => (props) => {
         placeholder: props.placeholder,
         disabled: props.ifDisabled
     }).done();
-    let msg = ifShow(Boolean(props.msg), E('span').P({className: C(appearance.msg)}).pack(props.msg));
-    return main.pack(
+    let msg = ifShow(Boolean(props.msg), E('span').P({className: C(appearance.msg)}).pack([props.msg]));
+    return main.pack([
         label,
         input,
         msg
-    )
+    ])
 };
 
 export {L, P}

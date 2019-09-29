@@ -14,9 +14,9 @@ L  = (appearance) => (props) => {
             appearance.main,
         ),
     });
-    let text = ifShow(Boolean(props.text), E().P({className: C(appearance.text)}).pack(props.text));
-    return main.pack(
+    let text = ifShow(Boolean(props.text), E().P({className: C(appearance.text)}).pack([props.text]));
+    return main.pack([
         text
-    )
+    ])
 };
 export {L, P}

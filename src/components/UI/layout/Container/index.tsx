@@ -15,8 +15,6 @@ L  = (appearance) => (props) => {
         ),
     });
 
-    return main.pack(
-        ...props.children
-    )
+    return main.pack(props.children)
 };
 export {L, P}

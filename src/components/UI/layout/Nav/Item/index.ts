@@ -3,7 +3,10 @@ import {E, C} from '$u/h'
 
 let L: (appearance: any) => React.FC<P>;
 
-class P {}
+class P {
+    text!: string;
+    event?: ()=>{};
+}
 
 L  = (appearance) => (props) => {
     // elem
@@ -11,8 +14,9 @@ L  = (appearance) => (props) => {
         className: C(
             appearance.main,
         ),
-    });
+        onClick: ()=>props.event?props.event():null
+    }).pack([props.text]);
 
-    return main.pack([])
+    return main
 };
 export {L, P}

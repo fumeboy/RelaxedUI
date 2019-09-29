@@ -15,7 +15,7 @@ L  = (appearance) => (props) => {
             appearance.main,
         ),
         href: props.target
-    }).pack(props.text);
+    }).pack([props.text]);
 
     return main
 };

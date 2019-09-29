@@ -44,7 +44,6 @@ C  = (props) => {
     if(props.size === 1){
         a = combineAppearances(a, small);
     }
-    console.log(a);
     // 把 appearance 传给 layout
     return L(a)(props)
 };

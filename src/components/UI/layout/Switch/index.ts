@@ -23,15 +23,15 @@ L = (appearance) => (props) => {
             appearance.svgBox,
         )
     });
-    return main.pack(
-        svgBox.pack(
+    return main.pack([
+        svgBox.pack([
             svg().P({
                 viewBox: "0 0 24 24"
-            }).pack(
+            }).pack([
                 circle().P({cx: "12", cy: "12", r: "12"}).done()
-            )
-        )
-    )
+            ])
+        ])
+    ])
 };
 
 export {L, P}
