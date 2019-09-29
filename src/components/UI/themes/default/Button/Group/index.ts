@@ -1,8 +1,9 @@
 import normal from './normal.less'
-import {L, P} from '$u/layout/_Example'
+import {L, P} from '$u/layout/Button/Group'
 import React from "react";
 
 let A = {
+
 };
 
 let C: React.FC<PP>;
@@ -11,7 +12,7 @@ class PP extends P{
 }
 
 C  = (props) => {
-    let a;
+    let a = normal;
     return L(a)(props)
 };
 

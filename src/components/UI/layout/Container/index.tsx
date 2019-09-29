@@ -4,7 +4,7 @@ import {E, C} from '$u/h'
 let L: (appearance: any) => React.FC<P>;
 // TODO
 class P {
-    items: React.ReactNode[] = []
+    children: React.ReactNode[] = []
 }
 
 L  = (appearance) => (props) => {
@@ -14,8 +14,9 @@ L  = (appearance) => (props) => {
             appearance.main,
         ),
     });
+
     return main.pack(
-        ...props.items
+        ...props.children
     )
 };
 export {L, P}

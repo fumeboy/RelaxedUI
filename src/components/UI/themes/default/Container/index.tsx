@@ -1,5 +1,5 @@
 import normal from './normal.less'
-import {L, P} from '$u/layout/_Example'
+import {L, P} from '$u/layout/Container'
 import React from "react";
 
 let A = {
@@ -11,7 +11,7 @@ class PP extends P{
 }
 
 C  = (props) => {
-    let a;
+    let a = normal;
     return L(a)(props)
 };
 

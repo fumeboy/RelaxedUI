@@ -3,14 +3,18 @@
 .main{
   margin: @baseMargin * 4;
   display: flex;
+  flex-wrap: wrap;
+  & > a {
+    margin: @baseSize 0 @baseSize @baseSize*5;
+  }
   .link_head{
     display: block;
-    margin-right: @baseSize /2;
     border: none;
     border-radius: @baseSize;
     background: @light-gray2;
     cursor: pointer;
     padding: @baseSize/2 @baseSize;
+    margin: @baseSize 0 @baseSize 0;
     vertical-align: text-bottom;
     height: @height;
     &:before{
@@ -32,7 +36,6 @@
     background: #ced9e0;
     cursor: pointer;
     padding: @baseSize/2 @baseSize;
-    margin: 0 0 0 @baseSize*5;
 
     &:before{
       position: absolute;

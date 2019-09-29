@@ -4,16 +4,19 @@ import {E, C} from '$u/h'
 let L: (appearance: any) => React.FC<P>;
 
 class P {
+    text!: string;
+    target?: string;
 }
 
 L  = (appearance) => (props) => {
     // elem
-    let main = E().P({
+    let main = E('a').P({
         className: C(
             appearance.main,
         ),
-    });
-    return main.pack(
-    )
+        href: props.target
+    }).pack(props.text);
+
+    return main
 };
 export {L, P}

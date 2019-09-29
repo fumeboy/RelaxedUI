@@ -4,7 +4,7 @@ import {E, C} from '$u/h'
 let L: (appearance: any) => React.FC<P>;
 
 class P {
-    links: React.ReactNode[] = []
+    items: React.ReactNode[] = []
 }
 
 L  = (appearance) => (props) => {
@@ -17,7 +17,7 @@ L  = (appearance) => (props) => {
     let link_head = E().P({className: C(appearance.link_head)}).done();
     return main.pack(
         link_head,
-        ...props.links
+        ...props.items
     )
 };
 export {L, P}

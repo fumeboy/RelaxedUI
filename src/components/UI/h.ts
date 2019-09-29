@@ -1,5 +1,9 @@
 import React, {ReactNode, useState} from "react";
 
+export class styleType {
+    [className: string]: string
+}
+
 class Elem {
     // 网页元素类
     t: string = 'div';
@@ -39,6 +43,18 @@ export function makeState(initState: any) {
         value: u[0],
         change: u[1]
     }
+}
+
+export function combineAppearances(...appearances: styleType[]) {
+    // 参数传入的数组长度应当大于等于 2
+    let res:any = {};
+    for(let i=0;i<appearances.length;i++){
+        for (let index in appearances[i]){
+            if(res[index])res[index] += " "+appearances[i][index];
+            else res[index] = appearances[i][index]
+        }
+    }
+    return res
 }
 
 export const E = (t: string= 'div') => {

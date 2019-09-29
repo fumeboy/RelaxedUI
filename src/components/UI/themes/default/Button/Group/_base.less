@@ -1,0 +1,19 @@
+@import "../../theme";
+
+.main{
+  margin: @baseMargin*4;
+  & > div{
+    border-radius: 0;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  & > div:first-child{
+    border-radius: @baseSize 0 0 @baseSize;
+    border-right: none;
+  }
+  & > div:last-child{
+    border-radius: 0 @baseSize @baseSize 0;
+    border-left: none;
+  }
+}

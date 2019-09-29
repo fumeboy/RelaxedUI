@@ -1,11 +1,13 @@
-import normal from './normal/style.less'
+import normal from './normal.less'
 import danger from './danger.less'
-import warning from './warning/style.less'
-import success from './success/style.less'
-import primary from './primary/style.less'
+import warning from './warning.less'
+import success from './success.less'
+import primary from './primary.less'
 import disabled from './disabled.less'
+import small from './small.less'
 import {L, P} from '$u/layout/Button'
 import React from "react";
+import {combineAppearances} from "$u/h";
 
 let A = {
     // 暴露给调用处的 appearance
@@ -23,7 +25,8 @@ let C: React.FC<PP>;
 class PP extends P{
     // 继承了 layout 的 props 类
     // 扩展父类以配合实现 style 的展示逻辑
-    appearance?: any
+    appearance?: any;
+    size?: 1 | 2 = 2;
 }
 
 C  = (props) => {
@@ -38,6 +41,10 @@ C  = (props) => {
             a = props.appearance
         }
     }
+    if(props.size === 1){
+        a = combineAppearances(a, small);
+    }
+    console.log(a);
     // 把 appearance 传给 layout
     return L(a)(props)
 };
