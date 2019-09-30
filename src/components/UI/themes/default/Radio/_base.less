@@ -1,4 +1,4 @@
-@import "h";
+@import "../theme";
 
 .main {
   font-family: "Nunito Sans", sans-serif;
@@ -29,6 +29,11 @@
 }
 
 .svgBox {
+  position: absolute;
+  display: block;
+  top: 14%;
+  left: @baseSize*1.5;
+
   & > .check, .minus {
     width: @baseSize*3;
     height: @baseSize*3;

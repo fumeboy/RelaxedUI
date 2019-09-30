@@ -15,12 +15,16 @@
 }
 
 .input {
+  border: none;
   border-radius: @baseSize;
   padding: @baseSize*3;
   font-family: "Nunito Sans", sans-serif;
   font-size: @baseSize*3;
   transition: all 0.2s ease-in-out;
-
+  box-shadow: 0 2px 6px #e1e1e1;
+  &::placeholder {
+    color: @grey_h1;
+  }
   &:focus,
   &:active {
     outline: none;

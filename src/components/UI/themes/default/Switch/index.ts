@@ -1,4 +1,4 @@
-import _base from '_base.less'
+import _base from './_base.less'
 import normal from './normal.less'
 import disabled from './disabled.less'
 import checked from './checked.less'
