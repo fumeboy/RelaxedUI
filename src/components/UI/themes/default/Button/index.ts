@@ -1,3 +1,4 @@
+import _base from './_base.less'
 import normal from './normal.less'
 import danger from './danger.less'
 import warning from './warning.less'
@@ -31,21 +32,21 @@ class PP extends P{
 
 C  = (props) => {
     // style 的展示逻辑
-    let a;
+    let a = [_base];
     if(props.ifDisabled){
-        a = disabled;
+        a.push(disabled);
     }else{
         if(!props.appearance){
-            a = normal
+            a.push(normal)
         }else{
-            a = props.appearance
+            a.push(props.appearance)
         }
     }
     if(props.size === 1){
-        a = combineAppearances(a, small);
+        a.push(small)
     }
     // 把 appearance 传给 layout
-    return L(a)(props)
+    return L(combineAppearances(a))(props)
 };
 
 export default {A, P, C}

@@ -72,8 +72,8 @@ L = (appearance) => (props) => {
                 nav_right,
             ]),
             expand_btn,
-            expand_area
-        ])
+        ]),
+        expand_area
     ])
 };
 export {L, P}

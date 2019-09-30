@@ -1,3 +1,4 @@
+import _base from './_base.less'
 import normal from './normal.less'
 import danger from './danger.less'
 import warning from './warning.less'
@@ -5,9 +6,9 @@ import success from './success.less'
 import disabled from './disabled.less'
 import {L, P} from '$u/layout/Input'
 import React from "react";
+import {combineAppearances} from "$u/h";
 
 let A = {
-    normal,
 };
 
 let C: React.FC<PP>;
@@ -16,29 +17,29 @@ class PP extends P {
 }
 
 C = (props) => {
-    let a;
+    let a = [_base];
     if (props.ifDisabled) {
-        a = disabled;
+        a.push(disabled);
     } else {
         switch (props.status) {
             case 0:
-                a = normal;
+                a.push(normal);
                 break;
             case 1:
-                a = success;
+                a.push(success);
                 break;
             case 2:
-                a = warning;
+                a.push(warning);
                 break;
             case 3:
-                a = danger;
+                a.push(danger);
                 break;
             default:
-                a = normal;
+                a.push(normal);
                 break
         }
     }
-    return L(a)(props)
+    return L(combineAppearances(a))(props)
 };
 
 export default {A, P, C}

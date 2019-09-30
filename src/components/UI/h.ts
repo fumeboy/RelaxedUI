@@ -48,7 +48,7 @@ export function makeState(initState: any) {
     }
 }
 
-export function combineAppearances(...appearances: styleType[]) {
+export function combineAppearances(appearances: styleType[]) {
     // 参数传入的数组长度应当大于等于 2
     let res:any = {};
     for(let i=0;i<appearances.length;i++){

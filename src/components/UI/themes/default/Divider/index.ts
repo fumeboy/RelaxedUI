@@ -1,8 +1,10 @@
+import _base from './_base.less'
 import normal from './normal.less'
 import left from './left.less'
 import right from './right.less'
 import {L, P} from '$u/layout/Divider'
 import React from "react";
+import {combineAppearances} from "$u/h";
 
 let A = {
 };
@@ -14,17 +16,17 @@ class PP extends P{
 }
 
 C  = (props) => {
-    let a;
+    let a = [_base];
     if(props.position){
         if(props.position == 1){
-            a = left
+            a.push(left)
         }else if(props.position == 2){
-            a = right
+            a.push(right)
         }
     }else{
-        a  = normal
+        a.push(normal)
     }
-    return L(a)(props)
+    return L(combineAppearances(a))(props)
 };
 
 export default {A, P, C}
