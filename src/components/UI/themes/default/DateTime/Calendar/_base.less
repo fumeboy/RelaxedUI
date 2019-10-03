@@ -1,0 +1,106 @@
+@import "_h";
+
+@height_: @baseSize * 4;
+
+.main {
+  background: @light;
+  width: 14rem;
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0 2px 6px @light-gray5;
+  border-radius: @baseSize;
+  border: 1px solid #ddd;
+}
+
+
+.monthBar, .yearBar {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+  background: @light-gray5;
+  border-bottom: 1px solid rgba(white, 0.2);
+  padding: @baseSize/2;
+}
+
+.prev_year_button, .prev_month_button{
+  transform: rotateZ(180deg);
+}
+
+.m_text, .y_text {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: @height_;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.prev_month_button, .next_month_button, .prev_year_button, .next_year_button {
+  background: transparent;
+  border: none;
+  color: currentcolor;
+  font-size: 1rem;
+  padding: 0;
+  border-radius: 0.25rem;
+  width: @height_;
+  height: @height_;
+
+  &:before{
+    width: inherit;
+    height: inherit;
+    content: "";
+    display: block;
+    transition: all 0.3s ease;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.71 7.29l-4-4a1.003 1.003 0 00-1.42 1.42L8.59 8 5.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l4-4c.18-.18.29-.43.29-.71 0-.28-.11-.53-.29-.71z' fill='%235C7080'/%3E%3C/svg%3E");
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.weekBox {
+  width: 14rem;
+  height: auto;
+  padding: 1rem 0;
+  transition: all 0.25s ease-in-out;
+
+  .weekGrid {
+    width: percentage(1/7);
+    display: inline-block;
+    float: left;
+    font-size: 0.563rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.dayBox {
+  margin: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  opacity: 0.5;
+
+  .dayGrid {
+    width: percentage(1/7);
+    float: left;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    border-radius: 0.25rem;
+    transition: background-color 0.25s ease-in-out;
+
+    &.past, &.future {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: @grey;
+    }
+  }
+}
+
+
+

@@ -27,7 +27,8 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
-    "redux-saga": "latest"
+    "redux-saga": "latest",
+    "moment": "latest"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",

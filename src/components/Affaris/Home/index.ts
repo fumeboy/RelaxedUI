@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '$u/themes/default/Button/'
 import ButtonGroup from '$u/themes/default/Button/Group'
-import CheckBox from '$u/themes/default/CheckBox'
-import Radio from '$u/themes/default/Radio'
-import Switch from '$u/themes/default/Switch'
-import Input from '$u/themes/default/Input'
-import FileInput from '$u/themes/default/FileInput'
+import CheckBox from '$u/themes/default/Form/CheckBox'
+import Radio from '$u/themes/default/Form/Radio'
+import Switch from '$u/themes/default/Form/Switch'
+import Input from '$u/themes/default/Form/Input'
+import FileInput from '$u/themes/default/Form/FileInput'
 import Breadcrumbs from '$u/themes/default/Breadcrumbs'
 import BreadcrumbsItem from '$u/themes/default/Breadcrumbs/Item'
 import Divider from '$u/themes/default/Divider'
@@ -14,12 +14,14 @@ import MenuItem from '$u/themes/default/Menu/Item'
 import Container from '$u/themes/default/Container'
 import Nav from '$u/themes/default/Nav'
 import NavItem from '$u/themes/default/Nav/Item'
+import DatePicker from '$u/themes/default/DateTime/DatePicker'
+import Calendar from '$u/themes/default/DateTime/Calendar'
 import {E, makeState} from '$u/h'
 
 let C: React.FC;
 
 C = () => {
-    let form = {
+    let state = {
         CheckBox: {
             1: makeState(false),
             2: makeState(true),
@@ -58,6 +60,13 @@ C = () => {
             })]
         ),
         Container.C({
+            children: [
+                DatePicker.C({
+                    calendarE: Calendar.C
+                })
+            ]
+        }),
+        Container.C({
                 children: [
                     ButtonGroup.C({
                         Items: [
@@ -94,33 +103,25 @@ C = () => {
         Container.C({
                 children: [
                     CheckBox.C({
-                        id: "id1",
                         label: "label",
-                        name: "name1",
-                        ifChecked: form.CheckBox[1].value,
-                        funcCheck: () => form.CheckBox[1].change(!form.CheckBox[1].value)
+                        ifChecked: state.CheckBox[1].value,
+                        funcCheck: () => state.CheckBox[1].change(!state.CheckBox[1].value)
                     }),
                     CheckBox.C({
-                        id: "id2",
                         label: "label",
-                        name: "name2",
-                        ifChecked: form.CheckBox[2].value,
-                        funcCheck: () => form.CheckBox[2].change(!form.CheckBox[2].value)
+                        ifChecked: state.CheckBox[2].value,
+                        funcCheck: () => state.CheckBox[2].change(!state.CheckBox[2].value)
                     }),
                     CheckBox.C({
-                        id: "id3",
                         label: "label",
-                        name: "name3",
                         ifDisabled: true,
-                        ifChecked: form.CheckBox[3].value,
-                        funcCheck: () => form.CheckBox[3].change(!form.CheckBox[3].value)
+                        ifChecked: state.CheckBox[3].value,
+                        funcCheck: () => state.CheckBox[3].change(!state.CheckBox[3].value)
                     }),
                     CheckBox.C({
-                        id: "id4",
                         label: "label",
-                        name: "name4",
-                        ifChecked: form.CheckBox[4].value,
-                        funcCheck: () => form.CheckBox[4].change(!form.CheckBox[4].value),
+                        ifChecked: state.CheckBox[4].value,
+                        funcCheck: () => state.CheckBox[4].change(!state.CheckBox[4].value),
                         ifDisabled: true,
                     }),]
             }
@@ -129,27 +130,25 @@ C = () => {
         Container.C({
                 children: [
                     Radio.C({
-                        id: "id5", label: "label", name: "name5",
-                        ifChecked: form.Radio[1].value,
-                        funcCheck: () => form.Radio[1].change(!form.Radio[1].value)
+                        label: "label",
+                        ifChecked: state.Radio[1].value,
+                        funcCheck: () => state.Radio[1].change(!state.Radio[1].value)
                     }),
                     Radio.C({
-                        id: "id6", label: "label", name: "name6",
-                        ifChecked: form.Radio[2].value,
-                        funcCheck: () => form.Radio[2].change(!form.Radio[2].value)
+                        label: "label",
+                        ifChecked: state.Radio[2].value,
+                        funcCheck: () => state.Radio[2].change(!state.Radio[2].value)
                     }),
                     Radio.C({
-                        id: "id7", label: "label", name: "name7",
-                        ifChecked: form.Radio[3].value,
-                        funcCheck: () => form.Radio[3].change(!form.Radio[3].value),
+                        label: "label",
+                        ifChecked: state.Radio[3].value,
+                        funcCheck: () => state.Radio[3].change(!state.Radio[3].value),
                         ifDisabled: true
                     }),
                     Radio.C({
-                        id: "id8",
                         label: "label",
-                        name: "name8",
-                        ifChecked: form.Radio[4].value,
-                        funcCheck: () => form.Radio[4].change(!form.Radio[4].value),
+                        ifChecked: state.Radio[4].value,
+                        funcCheck: () => state.Radio[4].change(!state.Radio[4].value),
                         ifDisabled: true,
                     }),]
             }
@@ -158,17 +157,21 @@ C = () => {
         Container.C({
                 children: [
                     Switch.C({
-                        ifChecked: form.Switch[1].value,
-                        funcCheck: () => form.Switch[1].change(!form.Switch[1].value)
+                        ifChecked: state.Switch[1].value,
+                        funcCheck: () => state.Switch[1].change(!state.Switch[1].value)
                     }),
                     Switch.C({
-                        ifChecked: form.Switch[2].value,
-                        funcCheck: () => form.Switch[2].change(!form.Switch[2].value)
+                        ifChecked: state.Switch[2].value,
+                        funcCheck: () => state.Switch[2].change(!state.Switch[2].value)
                     }),
                     Switch.C({
                         ifDisabled: true,
-                        ifChecked: form.Switch[3].value,
-                        funcCheck: () => form.Switch[3].change(!form.Switch[3].value)
+                        ifChecked: true,
+                        funcCheck: ()=>null
+                    }),
+                    Switch.C({
+                        ifDisabled: true,
+                        funcCheck: ()=>null
                     }),]
             }
         ),

@@ -1,0 +1,26 @@
+@import "_h";
+
+.main {
+  width: @baseSize*12;
+  border-radius: @baseSize*5;
+  display: inline-flex;
+  padding: @baseSize;
+  align-items: center;
+  cursor: pointer;
+  margin: @baseMargin*5;
+  border: 1px solid @grey;
+}
+
+.svgBox {
+  height: @baseSize*5;
+  transition: all 0.2s ease-in-out;
+
+  svg {
+    height: @baseSize*5;
+    width: @baseSize*5;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid;
+    box-sizing: border-box;
+    border-radius: 50%;
+  }
+}
